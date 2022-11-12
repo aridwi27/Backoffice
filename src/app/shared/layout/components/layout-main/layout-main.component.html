@@ -1,0 +1,23 @@
+<div class="container-fluid vh-100">
+  <nav class="navbar row border-bottom px-5 mb-3">
+    <h2 class="d-none d-sm-block col col-sm-3 fw-bold">Backoffice</h2>
+    <div class="col-12 col-sm-7 d-flex  justify-content-evenly px-5 x">
+      <div class="item" [routerLink]="'/home'"    [routerLinkActive]="'active'">Home</div>
+      <div class="item" [routerLink]="'/add-user'"   [routerLinkActive]="'active'">Add User</div>
+      <div class="item">About</div>
+    </div>
+    <div class=" profile d-none  d-sm-block col col-sm-2 text-end">
+        
+        <div class="d-flex justify-content-around align-items-center">
+            <p class="m-0 ">Ari Dwi Sukmawan</p>
+            <img
+            src="https://dummyimage.com/640x360/b9bfbe/waa"
+            class="rounded-circle"
+         
+          />
+        </div>
+    </div>
+  </nav>
+
+  <router-outlet></router-outlet>
+</div>

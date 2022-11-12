@@ -1,0 +1,101 @@
+<h3 class="fw-bold">Dashboard</h3>
+
+<div class="d-flex justify-content-center align-items-center  mt-4">
+    <div class="card card-body">
+        <div class="mb-3 d-flex justify-content-end align-items-center">
+            <button class="btn btn-success mx-2 text-white" [routerLink]="'/add-user'">Add Data</button>
+
+            <div>Search :</div>
+            <input
+              type="text"
+              class="form-control w-25 mx-3"
+              (keyup)="searchData($event)"
+            
+            />
+          </div>
+        <div style="overflow-x: auto;">
+            <table class="table">
+                <thead style="color: #b5b5c3; font-size: 14px; font-weight: 500">
+                  <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Fist Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">birthDate</th>
+                    <th scope="col">Basic Salary</th>
+                    <th scope="col">status</th>
+                    <th scope="col">group</th>
+                    <th scope="col">description</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of pagedItems">
+                    <td  [routerLink]="['..', 'detail', item.id]">
+                      {{ item.username }}
+                    </td>
+                    <td>{{item.firstName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.birthDate  | date}}</td>
+                    <td>{{item.basicSalary}}</td>
+                    <td>{{item.status}}</td>
+                    <td>{{item.group}}</td>
+                    <td>{{item.description | date}}</td>
+                    <td class="d-flex justify-content-around">
+                      <button class="btn btn-danger" (click)="deleteData(item.id)" >delete</button>
+                      <button class="btn btn-warning" >update</button>
+                    </td>
+        
+                    <ng-template #content let-modal>
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label for="dateOfBirth">Date of birth</label>
+                            <div class="input-group">
+                              <input
+                                id="dateOfBirth"
+                                class="form-control"
+                                placeholder="yyyy-mm-dd"
+                                name="dp"
+                                ngbDatepicker
+                              />
+                              <button class="btn btn-outline-secondary bi bi-calendar3" type="button"></button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                      </div>
+                    </ng-template>
+        
+                  </tr>
+                </tbody>
+          
+          
+          
+              </table>
+        </div>
+        <div class="d-flex justify-content-between w-100 mt-3 px-4">
+          <nav >
+            <ul class="pagination">
+              <li class="page-item"><a (click)="setPage(pager.currentPage - 1)" class="page-link" >Previous</a></li>
+              <li class="page-item" *ngFor="let page of pager.pages" ><a class="page-link"  [ngClass]="{'active' : page}" (click)="setPage(page)">{{page}}</a></li>
+              <li class="page-item" (click)="setPage(pager.currentPage + 1)"><a class="page-link" >Next</a></li>
+            </ul>
+          </nav>
+          <div class="">
+            <select class="form-select"  aria-label="Default select example" >
+              <option *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]" [value]="item">{{item}}</option>
+    
+            </select>
+          </div>
+        </div>
+    </div>
+
+</div>

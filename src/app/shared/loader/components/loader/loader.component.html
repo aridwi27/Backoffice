@@ -1,0 +1,4 @@
+<div class="d-flex justify-content-center align-items-center" *ngIf="state!='success'" [style.height]="height">
+    <div class="text-muted" style="font-size: 1.2rem;" *ngIf="state=='error'">No Data</div>
+    <div class="spinner-border text-primary" *ngIf="state=='loading'"></div>
+  </div>
