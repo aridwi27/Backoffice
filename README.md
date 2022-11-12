@@ -1,5 +1,25 @@
 # BackOffice
 
+cara menajalankan apliaksi:
+1.clone server `git clone https://github.com/aridwi27/server-backoffice`
+2.lalu masuk ke direktori server-backoffice, lalu `npm install`
+3.setelah selelsai, jalankan server `npm start`
+4.clone repository ini `git clone https://github.com/aridwi27/Backoffice`
+5.masuk ke direktori Backoffice lalu `npm install`
+6.setelah selelsai, jalankan app `npm start`
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
 
 ## Development server
